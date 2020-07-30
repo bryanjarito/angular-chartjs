@@ -1,0 +1,35 @@
+<div>
+  <div *ngIf="pieChartLabels.length > 0; else noDataToDisplay">
+    <div class="chart">
+      <h5>No. of comments per user using {{pieChartType}} chart.</h5>
+      <canvas baseChart
+        [data]="pieChartData"
+        [labels]="pieChartLabels"
+        [chartType]="pieChartType"
+        [options]="pieChartOptions"
+        [plugins]="pieChartPlugins"
+        [colors]="pieChartColors"
+        [legend]="pieChartLegend"
+        (chartClick)="chartClicked($event)">
+      </canvas>
+    </div>
+    <div  *ngIf="chartType == 'both'">
+      <div class="chart2">
+        <h5>No. of comments per user using pie chart.</h5>
+        <canvas baseChart
+          [data]="pieChartData"
+          [labels]="pieChartLabels"
+          chartType="pie"
+          [options]="pieChartOptions"
+          [plugins]="pieChartPlugins"
+          [colors]="pieChartColors"
+          [legend]="pieChartLegend"
+          (chartClick)="chartClicked($event)">
+        </canvas>
+      </div>
+    </div>
+  </div>
+  <ng-template #noDataToDisplay>
+    <div class="bg-info text-center text-white">No data to display</div> 
+  </ng-template>
+</div>

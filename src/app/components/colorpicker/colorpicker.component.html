@@ -1,0 +1,1 @@
+<input placeholder="Click here then click pie slice to change color" [(colorPicker)]="color" [style.background]="color" [cpOutputFormat]="'rgba'" [value]="color==undefined ? '' : color" class="form-control" (colorPickerChange)="onChange(color)"/> 
